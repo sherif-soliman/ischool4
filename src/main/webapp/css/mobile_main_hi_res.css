@@ -1,0 +1,148 @@
+@charset "utf-8";
+
+.main_body {
+	background-color:  	#FFFFFF;
+}
+.page_table{
+	/*
+	Used for table which contains all page components. class will used only one time
+	*/
+	width:200px;border:0; 
+	min-height: 600px;
+	text-align: left;
+	margin-bottom: 12%;
+}
+
+.odd_row{
+	/*
+	Used for odd row of questions datatable 
+	*/
+	color: #000000;  
+	background-color: 	#F2F2F2 ; 
+	font-family: Verdana, Arial, Sans-Serif; font-size:30px; 
+}
+.even_row{
+	/*
+	Used for even row of questions datatable
+	*/
+	color: #000000;  
+	background-color: #D9D9D9;
+	font-family: Verdana, Arial, Sans-Serif; font-size:30px; 
+}
+.error_msg {
+	/*
+	Style to error messages
+	*/
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 30px;
+	font-weight: bold;
+	color: darkgray;        
+	vertical-align: middle;
+	list-style: url("../images/errorpage/error_icon.gif")  ;
+	padding-left: 10px;
+}
+
+.warning_msg {
+	/*
+	Style to warning messages
+	*/
+	FONT-SIZE: 30px; COLOR: #ff000a; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+}
+.info_msg {
+	/*
+	Style to information messages
+	*/
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: blue;
+	list-style: url("../images/errorpage/information_icon.gif")   ;
+	padding-left: 10px;
+}
+
+BODY
+{
+	font-size: 30px;
+	color:red;
+}
+
+INPUT 
+{
+	font-size: 30px	
+}
+
+OUTPUT 
+{
+	font-size: 30px	
+}
+
+A
+{
+	font-size: 30px	
+}
+
+P
+{
+	font-size: 30px	
+}
+
+.left_manu_item
+{
+	color: #FFFFFF; 
+	text-decoration: none;
+}
+
+
+.logo_image
+{
+	width:150px;
+}
+
+.icon_image
+{
+	width:100px;
+}
+
+.profile_image
+{
+	width:100px;
+}
+.login_panel
+{
+	border-bottom-style: none; 
+	border-top-style: none; 
+	border-left-style: none; 
+	border-right-style: none;
+	cellpadding:6px;
+	cellspacing:12px;
+	
+	
+}
+
+/*
+.small_image
+{
+	width:25%;
+}
+
+.left_manu_item
+{
+	color: #FFFFFF; 
+	text-decoration: none;
+	font-size: 200%;
+}
+
+.normal_lable
+{
+	//style="color: #808080; font-size: 10px; text-decoration: blink; font-family: Verdana, Arial, Sans-Serif; border-bottom-style: none; border-top-style: none; border-left-style: none; border-right-style: none"
+
+	color: #808080;
+	font-size: 200%; 
+	text-decoration: blink; 
+	font-family: Verdana, Arial, Sans-Serif; 
+	border-bottom-style: none; 
+	border-top-style: none; 
+	border-left-style: none; 
+	border-right-style: none"
+}
+*/

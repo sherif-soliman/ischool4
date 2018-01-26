@@ -1,0 +1,162 @@
+-------------------------------------------------------------------------------------
+GIT
+-------------------------------------------------------------------------------------
+
+cd C:\Documents and Settings\Yasmin\newfolder>
+
+git add .
+git commit -m "adding home page"
+git push
+
+
+if required
+-----------
+git config user.name "sheif.soliman@hotmail.com"
+git config user.email "sheif.soliman@hotmail.com"
+git config --global push.default matching
+git config --global push.default simple
+
+
+when I got public key authentication problem with -> git push
+-------------------------------------------------------------
+I renamed ->	yasmin/.ssh & yasmin/.openshift
+then run -> 	rhc setup
+then bopied the content of yasmin/.ssh to program file/git/ssh
+
+
+-------------------------------------------------------------------------------------
+Rhc
+-------------------------------------------------------------------------------------
+
+rhc ssh newwebapp
+
+to check the used/available stoarage
+C:\Users\Sherif>rhc app show ischool --gears quota
+-------------------------------------------------------------------------------------
+UNIX
+-------------------------------------------------------------------------------------
+
+Commands
+--------
+
+tail -n 50 debug.log
+
+cd /var/lib/openshift/568e914689f5cff2bd000095/app-root/logs  "THEN"  tail -n 50 jbossews.log
+
+find . -name "log" -print
+
+// to check the disk size
+du -sh ./*
+
+Pathes
+------
+
+/var/lib/openshift/568e914689f5cff2bd000095/jbossews/images/dynamic/questions/any-egy-nat
+
+
+/var/lib/openshift/568e914689f5cff2bd000095/app-root/runtime/repo/src/main/webapp/xsl
+
+/var/lib/openshift/555b0dacfcf9333e0000019f/app-root/runtime/repo/target/ischool
+
+app-root/runtime/repo/target/newwebapp
+
+app-deployments/current/repo/target/newwebapp
+
+/var/lib/openshift/555b0dacfcf9333e0000019f/app-root/runtime/repo/src/main/webapp {linked to jbossews}
+
+remote: [INFO] Assembling webapp [ischool] in [/var/lib/openshift/568e914689f5cff2bd000095/app-root/runtime/repo/target/ischool]
+
+remote: [INFO] Copying webapp resources [/var/lib/openshift/568e914689f5cff2bd000095/app-root/runtime/repo/src/main/webapp]
+
+
+. path is : /var/lib/openshift/568e914689f5cff2bd000095/jbossews/.
+
+
+
+
+
+
+
+-------------------------------------------------------------------------------------
+Database
+-------------------------------------------------------------------------------------
+
+
+backup
+------
+
+mysqldump -h $OPENSHIFT_MYSQL_DB_HOST -P ${OPENSHIFT_MYSQL_DB_PORT:-3306} -u ${OPENSHIFT_MYSQL_DB_USERNAME:-'admin'} --password="$OPENSHIFT_MYSQL_DB_PASSWORD" --databases ischool  > jbossews/db_backup/ischool_dump_2017_05_30.sql
+
+Restore
+--------
+
+mysql> source db_dump_29_sep.txt
+
+or
+
+shell> mysql < db_dump_29_sep.txt
+
+
+Batch
+-----
+mysql ischool < source filename;
+
+
+Charset
+-------
+
+** [the most important thing is set the encoding while making the JDBC connection]
+
+SELECT character_set_name FROM information_schema.`COLUMNS` 
+WHERE table_schema = "ischool"
+  AND table_name = "exercise_reports"
+  AND column_name = "user_name";
+  
+  
+ALTER TABLE tablename CONVERT TO CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+SHOW CREATE DATABASE ischool;    -> to show the charset of the db
+
+CREATE DATABASE myappdb  DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_general_ci;
+
+ALTER DATABASE databasename CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+
+
+
+DB="ischool"
+(
+    echo 'ALTER DATABASE `'"$DB"'` CHARACTER SET utf8 COLLATE utf8_general_ci;'
+    mysql "$DB" -e "SHOW TABLES" --batch --skip-column-names \
+    | xargs -I{} echo 'ALTER TABLE `'{}'` CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;'
+) \
+| mysql "$DB"
+
+
+
+
+
+
+Query Syntax
+------------
+
+
+** Get all  tables names
+select table_name from information_schema.tables where table_schema='ischool';
+
+** get table structure
+describe exercises;
+
+** add new column
+alter table questions add column user_name varchar (60) NOt NULL;
+
+** chnage column size
+ALTER TABLE exams MODIFY school_scope varchar (40) NOt NULL;
+
+** order columns
+ALTER TABLE questions MODIFY COLUMN note varchar (60) AFTER ans6_image_src;
+
+
+** insert with select
+	insert into subjects (subject, class_year, school_type )
+		select ';;SUBJECT;;',  ';;CLASS_YEAR;;', type from schools where id=';;SCHOOL_ID;;';
+		

@@ -1,0 +1,663 @@
+================================================================================================
+================================================================================================
+Road Map
+
+- bugL we recieve homework notifictaion with the first question created, if teacher created more questions, it will not be syncked with the server.
+
+- open our questions for all students and teachers
+
+- heat and conc. arrow symbols
+- suggested exercise to be per students weakness
+- arabic interface
+ - bug in open dates in follow up, and activity reports,  it hide the lower fields
+- bug in student performance, there is no title for first column when I solved the first math exercise.
+- bug if somebody copied from word to add questions [ERROR stream.tornado.execution.adapters.impl.SQLtoObjectsAdapter -  : An invalid XML character (Unicode: 0xb) was found in the element content of the document.]
+
+- alert notification message with login to 
+- delete wrong units 
+- delete wrong exercises with empty subject and unit
+- bug: when session expired logout time not updated
+- refresh pending homework list when student solve one homework
+- bug: if user open started in one hoemwork and in the middle started a new one, the question will be merged coz the question bean in the session is the same (not sure)
+- skills anlaysis like performance analysis
+- follow up to all teachers/parents like classes and students
+- teacher and management to see students performance
+================================================================================================
+Version: 6.0
+
+Date 30 May . 2017 Deployed: Y 
+
+- added predefined reports in setup
+
+================================================================================================
+Version: 5.9
+
+Date 05 April. 2017 Deployed: Y - manage practice jsp
+
+- changed the time out code in case of mobile
+- //fixed bug of commented the question type and changed to style hidden
+- fixed bug in search question .. GET_SEARCHED_QUESTIONS_CALL
+
+
+================================================================================================
+Version: 5.9
+
+Date 01 April. 2017 Deployed: Y
+
+- updated arabic questions to elementary -- db correction
+- changed happy and sad faces images
+- fixed the place for next and previous buttons
+- removed the line above an dbelow correct fill
+- hide the options for true/false, sheet and fill in manage practice
+- changed the admin to get recent users upto 50 users
+
+================================================================================================
+Version: 5.8
+
+Date 22 March. 2017 Deployed: Y
+
+- fixed bug in activity report, refresh the teachers list after selecting the date
+
+================================================================================================
+Version: 5.7
+
+Date 16 March. 2017 Deployed: Y
+
+- fixed bug in activity report and ordered the screen to avoid hiding list bug
+- adjusted width in activity report and bab and admin
+- fixed rtl for arabic questions
+
+================================================================================================
+Version: 5.6 
+
+Date 24 Feb. 2017 Deployed: Y
+
+- Added images for Science and Math in Arabic  
+- Display question reference
+
+
+================================================================================================
+Version: 5.5 
+
+Date 11 Jan. 2017 Deployed: Y
+
+ALTER TABLE exercise_reports CONVERT TO CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+- changed login service in gateway to another new method to get remote profile details upon success login
+
+- fixed send followup bug from web 
+================================================================================================
+Version: 5.4
+Date 29 Dec. 2016 Deployed: Y
+
+- added android div for mobile and web login page
+================================================================================================
+Version: 5.3
+Date 28 Dec. 2016 Deployed: Y 
+
+ALTER TABLE server_pushes MODIFY message varchar (1500) NOt NULL;
+
+- allow search question by ID
+
+
+================================================================================================
+
+Version: 5.2
+Date 01 Dec. 2016 Deployed: Y 
+
+- Added post service to android gate.
+- Changed the post business to accept hashtable params.
+
+================================================================================================
+
+Version: 5.1
+Date 20 Oct. 2016 Deployed: Y 
+
+- solved charchter encoding of openshift server
+================================================================================================
+
+Version: 5.0
+Date 19 Oct. 2016 Deployed: W
+
+- added in and.. gate.. request.setCharacterEncoding("UTF-8");//SMS 19 Oct
+
+================================================================================================
+
+Version: 4.9
+Date 13 Oct. 2016 Deployed: Y
+
+- used java.net.URLDecoder in android gate to solve the encoding of the follow up msg and solve the encoding bug on openshift server
+
+
+================================================================================================
+
+Version: 4.8
+Date 13 Oct. 2016 Deployed: Y
+
+- added server pushes message to update mobile db remotely
+
+
+create table server_pushes (
+	id bigint NOT NULL AUTO_INCREMENT,
+	message varchar (500) NOt NULL,
+	creation_date date,
+	PRIMARY KEY (id)
+	);
+
+
+- changed mail account to ischool.ws for error messages
+
+
+================================================================================================
+Version: 4.7
+Date 18 Sep. 2016 Deployed: Y
+
+- drop table pending_to_server    : will be on mobile app only
+
+- alter table users add creation_date datetime;
+
+- CREATE TABLE pending_to_server (
+id bigint(20) NOT NULL AUTO_INCREMENT,
+  creation_date date NOT NULL ,
+  params varchar(300) NOT NULL,
+ PRIMARY KEY (id) );
+
+
+ drop table users_token;
+ 
+ CREATE TABLE users_token (
+  user_name varchar(60) NOT NULL,
+  token varchar(300),
+ PRIMARY KEY (user_name) );
+
+
+- changed forget password business and bean to be use hashtable instead of bean
+- add service for registration and forget password
+- fixed bug in sending school ID while sending follow up from server.
+- fixed notification encoding
+- built the sync of homework and performance
+- added registration android gate service
+
+================================================================================================
+
+Version: 4.6
+Date 31 Aug. 2016 Deployed: Y
+
+- added "save report" and  "update performance" to android gate.
+- fixed error when android service gate not available.
+- fixed line 342 in "practice business"
+
+================================================================================================
+
+Version: 4.5
+Date 09 Aug. 2016 Deployed: Y
+
+- added assign copy homework to android gate.
+================================================================================================
+
+Version: 4.4
+Date 14 July. 2016 Deployed: Y
+
+- fixed follow up "android" bug:
+	- overload the save method in business class
+	- fixed the required parameters
+	- fixed notifctaion params SEND_FOLLOWUP_NOTIFICATION_CALL
+================================================================================================
+
+Version: 4.3
+Date 13 July. 2016 Deployed: Y
+
+- change "sender user name" in followup bean and business to support mobile version
+- completed send follow up from mobile
+
+================================================================================================
+
+Version: 4.2
+Date 1 June. 2016 Deployed: Y
+
+ALTER TABLE questions MODIFY question_lesson varchar (100) NOt NULL;
+
+- get Token dynamically.
+- added notification for homework.
+- sync homework
+
+================================================================================================
+
+Version: 4.1
+Date 29 May. 2016 Deployed: Y
+
+**  added two jars commons-io-2.5.jar and json.jar  and http-core-4.1.jar
+** add Android_API_KEY in app config
+** change web inf to add record for android gate serrvlet
+
+
+CREATE TABLE users_token (
+  user_name varchar(60) COLLATE utf8_unicode_ci NOT NULL,
+  token varchar(300),
+ PRIMARY KEY (user_name) );
+
+
+	insert into users_token values ("student","dB51O2xe4-E:APA91bGZ6luNUpsdPB-8NB1nY4nxyWjYgvADG3PbddoYxkPfLg2iCysQdnwLnolNsEiF8hiG3AWRjV3MuEiPQVvdNPr-LBg_MKUOTbQjTs8oTFf-SqfI7xwtuxGcV_fVfddjKndKZE-s");
+
+
+- added new message SEND_FOLLOWUP_NOTIFICATION_CALSS and new adapter AndroidNotificationAdapter
+- updated GET_USERS_CALL
+- add GET_USERS_CALL, GET_USER_TOKEN_CALL
+- changed and CHECK_LOGIN_CALL to retrive role while creating profile
+
+
+================================================================================================
+
+Version: 4.0
+Date 11 May. 2016 Deployed: Y
+
+** ALTER TABLE units CONVERT TO CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+** ALTER TABLE lessons CONVERT TO CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+- removed delete question button from manage practice, teacher can delete question from search screen.
+- update images for subject term 1 and term 2
+- added "order by subject" to GET_EXERCISES_SUBJECT_LIST. to get term II just after term I for the same subject.
+- changed comparing the correct fill to exact answer, if there is no ::
+- changed subject naming to -I and -II instead of -1 and -2 
+================================================================================================
+
+Version: 3.9
+Date 09 May. 2016 Deployed: Y
+
+**** new to add 2 entries in config for script logger
+ 
+
+- Removed and Deleted GET_SNYC_CALL and corresponding usage**** new to add 2 entries in config for script logger
+- stop clear question text and correct fill when change the question type. "reported by marwa"
+- working on fixing performance static values
+- fixed order of searched questions "GET_SEARCHED_QUESTIONS_CALL"
+- fixed bug in "MultiDynamicInsertAdapter" conflict of :: between this adapter and :: usage in fill question
+
+
+- comment update statement in logout, enough in listener.
+- add script logger & commented it for now
+- created script builder adapter
+- add GET_SNYC_CALL message
+- fixed bug that layout destroyed when user minimize the window
+- used style class instead on injected code
+- fixed bug on save performance to differentiate the lesson of correct and wrong answers.
+- created images for term I and term II
+
+================================================================================================
+
+Version: 3.8
+Date 17 April. 2016 Deployed: Y 
+
+- changed pending homework image
+- removed default value from login and logout time, it caused some error in db
+- slight change in posts column width display
+================================================================================================
+
+Version: 3.7
+Date 17 April. 2016 Deployed: Y 
+
+** copy new xsl file
+** copy mail jar to deployment
+alter table users add column login_time datetime;
+alter table users add column logout_time datetime;
+alter table questions add column school_scope varchar(40) DEFAULT "english-national" NOt NULL AFTER images_folder;
+
+alter table exercise_reports add column total_questions varchar(10) DEFAULT "0" NOt NULL AFTER exercise_id;
+alter table exercise_reports add column correct_questions varchar(10) DEFAULT "0" NOt NULL AFTER exercise_id;
+alter table exam_reports add column total_questions varchar(10) DEFAULT "0" NOt NULL AFTER exam_id;
+alter table exam_reports add column correct_questions varchar(10) DEFAULT "0" NOt NULL AFTER exam_id;
+alter table homework_reports add column total_questions varchar(10) DEFAULT "0" NOt NULL AFTER homework_id;
+alter table homework_reports add column correct_questions varchar(10) DEFAULT "0" NOt NULL AFTER homework_id;
+
+- changed "mobile" label to User Name
+- disable student answer in review mode
+- validated the selection of student answers.
+- validated the manage practice for correct answer and fill inputs.
+- activate forget password
+- send email when error happen
+- refactored process to formatter
+- refactored common to parentjsp
+- added login time tracker
+- fixed bug: public post should be within school only
+- reload page "empty_redirect" when the user solve a homework to refresh the list
+- fixed bug: - GET_SEARCHED_QUESTIONS_CALL need to be changed to search for scoped questions only , not all schools
+- added school_type to user profile and param filler to enhance the performance of the below calls
+		GET_EXERCISES_SUBJECT_LIST
+		GET_EXERCISES_LIST
+		GET_SUGGESTED_EXERCISES_LIST
+		GET_TOP_EXERCISES_LIST
+		GET_EXAMS_SUBJECT_LIST
+		GET_EXAMS_LIST
+		GET_EXERCISE_LIST_CALL
+		
+- removed image from posts header.
+- removed blue border from calender object in case of IE
+- alligned left and right menu contents to left side in case of IE
+- changed style and backgorund color of the whole app	
+- changed hoemwwork, followup images and default user images.	 
+================================================================================================
+
+Version: 3.6
+Date 3 March. 2016 Deployed: Y 
+
+- Changed search practice to get scoped practices not only user belongs (changed searchPractice() and GET_EXERCISE_LIST_CALL , GET_EXAM_LIST_CALL, GET_HOMEWORK_LIST_CALL to search for scoped practices
+	GET_CLASSES_FOR_HOMEWORK_COPY_CALL)
+
+- Enabled copy exam and exercise to honework (COPY_HOMEWORK_FROM_HOMEWORK_CALL , COPY_HOMEWORK_FROM_EXAM_CALL , COPY_HOMEWORK_FROM_EXERCISE_CALL , saveHomeworkCopy() 
+	and COPY_HOMEWORK_QUESTIONS_FROM_EXERCISE_CALL, COPY_HOMEWORK_QUESTIONS_FROM_EXAM_CALL, 
+	COPY_HOMEWORK_QUESTIONS_FROM_HOMEWORK_CALL)
+	
+- disabled performance link temporary	
+================================================================================================
+
+Version: 3.5
+Date 29 Feb. 2016 Deployed: Y 
+
+** update exams set school_scope="english-national" where user_name="yasmin";
+
+
+- use name instead of user_name in posts, I changed the querey
+- changed the id and exercise id in reports screens and business, for better code understanding
+- added timestamp to avoid caching problem
+- fixed bug in open registeration link in local environment
+- correct query in get_teachers_followup to filter schools teachers only
+- update SEARCH_FOR_NEW_SCHOOL_USERS_CALL
+- fixed bug in calling "UPDATE_CLASS_NAME_CALL" wrong paramtere spelling
+- comments student name in report printing till fixing it in case of class report
+- completed class homework report
+
+================================================================================================
+
+Version: 3.4.5
+Date 19 Feb. 2016 Deployed: Y
+
+ALTER TABLE posts CONVERT TO CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+ALTER TABLE friends CONVERT TO CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+ALTER TABLE homework_reports CONVERT TO CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+update exercises set school_scope ="english-national" where user_name in ("manal","marwa","abeer") ;
+
+================================================================================================
+
+Version: 3.4
+Date 15 Feb. 2016 Deployed: Y
+
+ALTER TABLE users CONVERT TO CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+ALTER TABLE followups CONVERT TO CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+
+- adjusted m_home and top_section: removed old role link, added security to friends, add link for activity reports.
+- add monitor and activity report module
+- renamed setup adapter to sql to heml adapter
+================================================================================================
+
+Version: 3.3
+Date 15 Feb. 2016 Deployed: Y
+
+
+add delete image
+**
+alter table followups add column expire_date date NOT NULL;
+alter table followups add column creation_date date NOT NULL;
+
+ALTER TABLE followups add column status varchar (20) NOt NULL;
+ALTER TABLE followups MODIFY COLUMN status varchar (20) AFTER scope;
+**
+- added Admin module and role management
+- fixed view delete button in search question
+- working on followup view for headmaster to filter teachers view
+- load menus in constuctor againest security condition, to load only for authrized users in honework and followup
+- in followup, clear fileds after save, made two views for teachers and students, add status, created at and expired at fields.
+-  adjust posts and followup pages width
+- add delete function for posts  still need to delete the image.
+
+================================================================================================
+
+Version: 3.1
+Date 25 Jan. 2016 Deployed: Y
+
+- fixed the blank image in the report content view for homework and exam
+- fixed bug in viewing other schools  exercise in -> GET_EXERCISES_LIST & GET_TOP_EXERCISES_LIST
+- fixed progress bar in homework screen - teacher view
+- delete 3 unused bean declerations in faces config
+- show questions for all users but hide delete button for owner user only.
+- add filteration section for follow up module
+
+================================================================================================
+
+Version: 3.0
+Date 20 Jan. 2016 Deployed: Y
+
+- progress in reports top
+- decoding html tags in reports content viewing
+- fixed the blank image in the report content view
+
+================================================================================================
+
+Version: 2.9
+Date 15 Jan. 2016 Deployed: Y
+
+
+**
+ALTER TABLE classes CONVERT TO CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+**
+- applied simple registration page
+- returned back GET_HOMEWORK_LIST_CALL that was delete in version 2.1, this message is used during homework search in manage practice.
+- deleted SAVE_HOMEWORK_CALL from call configuration file, it is not used any more.
+- added due date calendar in homework creation.
+- fixed bug in homework filtration w.r.t due date 
+- added copy homework feature to another class
+- keep the units and lessons in while selecting exam from practice type in practice management.
+- fixed the bug while changing from MCQ to fill questions using the onclick for the radio buttons.
+- added feature to see the questions of the practice in report page.
+- changed the style and header of the reports and printing
+- change allignment in bab page
+- changed styling in setup adapter which is used in generating html
+
+================================================================================================
+
+Version: 2.8
+Date 25 Oct. 2015 Deployed: N
+
+- fixed bug in setup beans of wrong imports
+
+================================================================================================
+
+Version: 2.7
+Date 23 Oct. 2015 Deployed: Y
+
+- Update Question and answers images
+- delete image folder on deleting question
+- security for homework class filter
+- make resize hight = 1400 instead of 1000 to see manage practice full list
+================================================================================================
+
+Version: 2.6
+Date 22 Oct. 2015 Deployed: Y
+
+- IOT servlet
+
+================================================================================================
+Version: 2.5
+Date 22 Oct. 2015 Deployed: Y
+
+- adjust in error pages
+- alter columns widths
+- added teacher section in reports
+- locked empty question search
+- added security check for top links and reports and follow ups and also for mobile menu
+- made the practice manager more dynamic to review, add symbols and equations for all fields
+
+================================================================================================
+Version: 2.4
+Date 19 Oct. 2015 Deployed: Y
+
+- add general JSF exception handler
+- change follow up posts header
+
+================================================================================================
+Version: 2.3
+Date 18 Oct. 2015 Deployed: Y
+
+
+- changed line color separator in images.
+- changed upload
+- fixed special params bug in multi record insert, single quote bug
+
+
+================================================================================================
+Version: 2.2
+Date 18 Oct. 2015 Deployed: Y
+ 
+- adjust question images background and styles
+- fixed evaluation of empty fill answer
+- fixed appearance of review wrong questions button
+================================================================================================
+Version: 2.1
+Date 17 Oct. 2015 Deployed: Yes
+
+- fixed image upload bug, in case or arabic and space named images
+
+- renamed the folder of question images to the date readable name
+
+- showed the progress bar when added a question and moved to top of the screen
+
+- adjusted the question images
+
+- exercise refactored to question
+
+- locked the school list to its teachers only
+
+- delete unused GET_HOMEWORK_LIST_CALL and GET_HOMEWORK_CALL
+
+- drop table studens_homework
+
+- used invalidate session instead of deleting beans one by one
+
+- drop table students_homework; ****
+
+- added change password
+
+- added change class for teacher to see his added homework 
+
+================================================================================================
+Version: 2.0
+Date 13 Oct. 2015 Deployed: Yes
+
+- fixed image allignmet in sub ex list, home list and exam list
+
+- removed the util bean and decided to make the subject in english only
+
+================================================================================================
+Version: 1.9
+Date 12 Oct. 2015 Deployed: Yes
+
+- fixed bug in retrieval exercise, refresh practiceId query string parameter.
+
+- fixed bug in arabic subjects images
+
+- fixed bug in posts new line
+
+- fixed bug in arabic questions and equations direction
+
+- changes subjects images
+
+================================================================================================
+Version: 1.8
+Date 12 Oct. 2015
+
+- fixed bug in posts retival scope
+
+================================================================================================
+Version: 1.7
+Date 11 Oct. 2015
+
+ - fixed bug in school type sub query
+ 
+ - make default user image
+ 
+- fix bug in regiteration empty image
+ 
+ - fixed bug in suggested exercises
+ 
+
+================================================================================================
+Version: 1.6
+Date 11 Oct. 2015
+
+ - make the exercise image width dynamic
+ 
+ - remove the border in on exercise image in exercise_list.jsp for IE
+ 
+ - remove un used code in hide_progress_bar function
+ 
+ - added reports module
+
+================================================================================================
+Version: 1.5
+Date 07 Oct. 2015
+
+ - adjust the left menu style of m_home
+ 
+ - added images & copy right to the footer of m_login
+ 
+ - adjust exercise image width and center
+ 
+ - move to page start on load
+
+================================================================================================
+Version: 1.4
+Date 1 Oct. 2015
+
+ - fixed bug in equation layout
+
+================================================================================================
+Version: 1.3
+Date 30 Sep. 2015
+
+ - fixed bug in progress show in setup pages
+ 
+ - fixed bug in ischool.ws without wwww. in parent JSP
+ 
+ - fixed bug in practice manager -> review question. for symbols
+ 
+ - fixed the alignment of the equation.
+ 
+ - adjust mobile iframe height like in w_home.jsp
+ 
+ - fixed the row count in subject exercise list. 
+ 
+================================================================================================
+Version: 1.2
+Date 12 Sep. 2015
+
+- add "build all exams" in exam builder
+- assure no repeat same question in same exam
+
+- pending homewrok link to open the main frame window
+
+- fixed the url without www in the parent jsp
+
+- added "add equation"
+
+- added "follow up" module 
+
+- adjusted pending friends in left section and removed from right section
+
+- adjusted suggested exercises in left section
+
+================================================================================================
+Version: 1.1
+Date 6 Sep. 2015
+
+- add exam builder
+- separate performance from bab
+
+================================================================================================
+
+Version: 1.0
+Date 5 Sep. 2015
+
+- adjust width of performance screen.
+

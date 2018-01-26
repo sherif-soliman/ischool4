@@ -1,0 +1,242 @@
+@charset "utf-8";
+
+.top_menu_section {
+	color: #FFFFFF; 
+	background-color: #124e8a;
+}
+
+.top_menu_section_grid {
+	
+	color: #FFFFFF;  	 
+	background-color: #124e8a; 
+	font-family: Verdana, Arial, Sans-Serif; 
+	font-size:14px;
+	font-weight: bold;
+	height:30px; line-height: 30px;
+	
+
+}					
+.top_menu_section_item {
+
+	color: #FFFFFF; 	
+	text-decoration: none;
+	
+}
+.top_menu_section_logout {
+	
+	color: red;	
+	text-decoration: none;
+	
+}
+.top_menu_section_item_sep {
+
+		font-weight: normal ; 
+		color: #011f4b;
+}
+  
+
+.left_menu_section {
+	color: #FFFFFF;  
+	background-color: blue;	
+	font-family: Verdana, Arial, Sans-Serif; 
+	font-size:15px;
+	height:30px; 
+	line-height: 30px;
+	boarder:1; 
+}
+.left_menu_section_title {
+	width:160px; 
+	color: Blue;
+}
+
+.right_menu_section_title {
+	width:160px; 
+	color: Blue;
+}
+
+.right_menu_section {
+	color: #FFFFFF;  
+	background-color: blue;	
+	font-family: Verdana, Arial, Sans-Serif; 
+	font-size:15px;
+	height:30px; 
+	line-height: 30px;
+	boarder:1; 
+}
+
+
+.middle_menu_section {
+	color: #FFFFFF;  
+	background-color: blue;
+	font-family: Verdana, Arial, Sans-Serif; 
+	font-size:15px;
+	height:30px; 
+	line-height: 30px;
+	boarder:1; 
+}
+
+.main_body {
+	background-color:  	#FFFFFF;
+}
+.page_table{
+	/*
+	Used for table which contains all page components. class will used only one time
+	*/
+	width:200px;border:0; 
+	min-height: 600px;
+	text-align: left;
+	margin-bottom: 12%;
+}
+
+.more_row{
+	/*
+	 
+	*/
+	color:red; 
+	text-decoration: none;
+	background-color: 	white ; 
+	font-family: Verdana, Arial, Sans-Serif; font-size:12px;
+	line-height: 30px; 
+}
+.header_row{
+	/*
+	Used for odd row of questions datatable 
+	*/
+	color: #000000;  
+	background-color: 	#F2F2F2 ; 
+	font-family: Verdana, Arial, Sans-Serif; font-size:12px;
+	line-height: 25px; 
+	align:left;
+}
+
+.data_table_header{
+	/*
+	Used for row header in admin page 
+	*/
+	color: red;  	
+	font-family: Verdana, Arial, Sans-Serif; font-size:14px;
+	line-height: 25px; 	
+}
+
+.question
+{
+ border-collapse: collapse; 	 
+}
+
+.left_align
+{
+	text-align: left; 	
+}
+.plain_row{
+	/*
+	Used for odd row of questions datatable 
+	*/
+	color: #000000;  
+	/*background-color: 	#F2F2F2 ; */
+	font-family: Verdana, Arial, Sans-Serif; font-size:12px;
+	line-height: 25px;
+	text-align: left;
+	text-decoration: none; 	
+}
+.odd_row{
+	/*
+	Used for odd row of questions datatable 
+	*/
+	color: #000000;  
+	background-color: 	#F2F2F2 ; 
+	font-family: Verdana, Arial, Sans-Serif; font-size:12px;
+	line-height: 25px;
+	text-align: left;
+	text-decoration: none; 	
+}
+
+.even_row{
+	/*
+	Used for even row of questions datatable
+	*/
+	color: #000000;  
+	background-color: #D9D9D9;
+	font-family: Verdana, Arial, Sans-Serif; font-size:12px;
+	line-height: 25px; 
+	text-align: left;
+	text-decoration: none;
+}
+.error_msg {
+	/*
+	Style to error messages
+	*/
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: darkgray;        
+	vertical-align: middle;
+	list-style: url("../images/errorpage/error_icon.gif")  ;
+	padding-left: 10px;
+}
+
+.warning_msg {
+	/*
+	Style to warning messages
+	*/
+	FONT-SIZE: 14px; COLOR: #ff000a; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+}
+.info_msg {
+	/*
+	Style to information messages
+	*/
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: blue;
+	list-style: url("../images/errorpage/information_icon.gif")   ;
+	padding-left: 10px;		
+}
+
+
+.menu_item
+{
+	color:#3E3E3E; 
+	text-decoration: none;
+	line-height: 30px;
+}
+
+
+
+.logo_image
+{
+	width:70px;
+}
+
+.icon_image
+{
+	width:40px;
+}
+
+.profile_image
+{
+	width:40px;
+}
+
+
+.login_panel
+{
+	border-bottom-style: none; 
+	border-top-style: none; 
+	border-left-style: none; 
+	border-right-style: none;
+	cellpadding:2;
+	cellspacing:4;
+	
+}
+
+.symbol_item
+{
+	text-decoration: none;
+	font-size: 18px;
+}
+
+.fixed-size {
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+
